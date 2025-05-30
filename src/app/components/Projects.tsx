@@ -81,10 +81,10 @@ export const Projects = () => {
             Uma seleção dos meus trabalhos mais recentes, incluindo micro-SaaS e websites
           </p>
         </div>
-        <div className="flex justify-between max-w-[450px] w-full m-auto gap-3 pb-10">
-          <Button onClick={() => filterProjects("todos")} className={`${isActive === "todos" && "border-2 border-blue-500"} max-w-[400px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Todos</Button>
-          <Button onClick={() => filterProjects("site")} className={`${isActive === "site" && "border-2 border-blue-500"} max-w-[400px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Sites</Button>
-          <Button onClick={() => filterProjects("saas")} className={`${isActive === "saas" && "border-2 border-blue-500"} max-w-[400px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Micro-Saas</Button>
+        <div className="flex justify-between  w-full m-auto gap-2 pb-10">
+          <Button onClick={() => filterProjects("todos")} className={`${isActive === "todos" && "border-2 border-blue-500"} md:max-w-[400px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Todos</Button>
+          <Button onClick={() => filterProjects("site")} className={`${isActive === "site" && "border-2 border-blue-500"} md:max-w-[400px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Sites</Button>
+          <Button onClick={() => filterProjects("saas")} className={`${isActive === "saas" && "border-2 border-blue-500"} md:max-w-[400px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Micro-Saas</Button>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {filteredProject.map((project, index) => (
