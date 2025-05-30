@@ -1,7 +1,7 @@
 "use client"
 import { ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button"
 import curso from '@/app/assets/site/allan 1920x1080.png'
 import advocacia from '@/app/assets/site/site advocacia.png'
 import sleepStore from '@/app/assets/site/sleepStore.png'
