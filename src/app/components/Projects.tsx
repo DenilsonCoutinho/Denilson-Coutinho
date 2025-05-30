@@ -69,7 +69,7 @@ export const Projects = () => {
     }
   }
   return (
-    <section id="projetos" className="py-20 bg-gradient-to-br from-slate-50 to-white">
+    <section id="projetos" className="py-20 bg-gradient-to-br  from-slate-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -81,10 +81,10 @@ export const Projects = () => {
             Uma seleção dos meus trabalhos mais recentes, incluindo micro-SaaS e websites
           </p>
         </div>
-        <div className="flex justify-between  w-full m-auto gap-2 pb-10">
-          <Button onClick={() => filterProjects("todos")} className={`${isActive === "todos" && "border-2 border-blue-500"} md:max-w-[400px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Todos</Button>
-          <Button onClick={() => filterProjects("site")} className={`${isActive === "site" && "border-2 border-blue-500"} md:max-w-[400px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Sites</Button>
-          <Button onClick={() => filterProjects("saas")} className={`${isActive === "saas" && "border-2 border-blue-500"} md:max-w-[400px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Micro-Saas</Button>
+        <div className="flex justify-center w-full m-auto gap-2 pb-10 ">
+          <Button onClick={() => filterProjects("todos")} className={`${isActive === "todos" && "border-2 border-blue-500"} md:max-w-[375px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Todos</Button>
+          <Button onClick={() => filterProjects("site")} className={`${isActive === "site" && "border-2 border-blue-500"} md:max-w-[375px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Sites</Button>
+          <Button onClick={() => filterProjects("saas")} className={`${isActive === "saas" && "border-2 border-blue-500"} md:max-w-[375px] max-w-[100px] duration-500 cursor-pointer w-full bg-gradient-to-r from-slate-900 to-blue-950 text-white`}>Micro-Saas</Button>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {filteredProject.map((project, index) => (
