@@ -5,17 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Imagination</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-    <div id="preloader" class="fixed z-[100] top-0 left-0 right-0 bottom-0 bg-[#080808] flex flex-col">
+    <!-- <div id="preloader" class="fixed z-[100] top-0 left-0 right-0 bottom-0 bg-[#080808] flex flex-col">
 
         <span class="absolute top-8 left-10  text-white text-2xl tracking-widest anim-fade-up delay-200">
             DC
@@ -57,7 +56,7 @@
 
         </div>
 
-    </div>
+    </div> -->
     <div class="bg-main overflow-hidden">
         <div class="video-box md:h-screen h-[90vh] flex items-center justify-center relative">
             <video class="video object-cover md:object-bottom object-[90%] w-full h-full  bg-cover" autoplay muted loop
@@ -183,7 +182,7 @@
     <div class="video-box h-screen last-section relative">
         <div class="absolute inset-0 z-50 w-full h-full flex flex-col justify-center items-center">
             <div class="flex items-start justify-between">
-              
+
             </div>
 
             <!-- Meio: headline alinhada à direita -->
@@ -199,7 +198,7 @@
                 <button
                     class="flex items-center gap-3 bg-[#f0ede8] text-[#0a0a0a] text-sm font-normal rounded-full pl-7 pr-2 py-2 hover:opacity-85 transition-opacity">
                     Solicitar orçamento
-                    <span class="w-8 h-8 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0">
+                    <span class="w-8 h-8 rounded-full bg-[#0a0a0a] flex items-center justify-center shrink-0">
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="#f0ede8" stroke-width="1.6"
                                 stroke-linecap="round" stroke-linejoin="round" />
@@ -211,8 +210,7 @@
                 <button
                     class="flex items-center gap-3 bg-transparent text-[#f0ede8] text-sm font-normal rounded-full pl-7 pr-2 py-2 border border-white/30 hover:border-white/70 transition-colors">
                     Entrar em contato
-                    <span
-                        class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center flex-shrink-0">
+                    <span class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center shrink-0">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(240,237,232,0.75)">
                             <path
                                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -235,24 +233,24 @@
         </video>
 
     </div>
-
+   
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 
     <script>
-        const preloader = document.getElementById('preloader');
-        const loaderLine = document.getElementById('loader-line');
+        // const preloader = document.getElementById('preloader');
+        // const loaderLine = document.getElementById('loader-line');
 
-        loaderLine.addEventListener('animationend', () => {
-            setTimeout(() => {
-                preloader.classList.add('done');
-                preloader.addEventListener('animationend', () => {
-                    preloader.style.display = 'none';
-                }, { once: true });
-            }, 350);
-        });
+        // loaderLine.addEventListener('animationend', () => {
+        //     setTimeout(() => {
+        //         preloader.classList.add('done');
+        //         preloader.addEventListener('animationend', () => {
+        //             preloader.style.display = 'none';
+        //         }, { once: true });
+        //     }, 350);
+        // });
 
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText)
