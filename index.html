@@ -108,7 +108,7 @@
         </div>
 
         <div class="container-text h-screen z-100 pointer-events-none">
-            <div class="textTransition leading-[1.3] ">
+            <div class="textTransition leading-[1.3] hidden">
                 Não acreditamos em soluções genéricas. Cada projeto é pensado do
                 zero, unindo estratégia, design e desenvolvimento.
             </div>
@@ -242,7 +242,7 @@
     <script>
         const preloader = document.getElementById('preloader');
         const loaderLine = document.getElementById('loader-line');
-
+        const textTransition = document.querySelector('.textTransition');
         loaderLine.addEventListener('animationend', () => {
             setTimeout(() => {
                 preloader.classList.add('done');
@@ -255,7 +255,7 @@
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText)
         window.addEventListener("load", () => {
-
+            textTransition.classList.remove("hidden")
             const portifolios = gsap.utils.toArray(".projetos");
             const tlPortifolio = gsap.timeline({
                 scrollTrigger: {
