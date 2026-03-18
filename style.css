@@ -161,28 +161,6 @@ body {
   height: 140px;
 }
 
-.anim-fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 0.5s ease forwards;
-}
-.anim-fade {
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-.delay-500 {
-  animation-delay: 0.5s;
-}
-.delay-1100 {
-  animation-delay: 0.1s;
-}
-.delay-1800 {
-  animation-delay: 0.5s;
-}
 
 .word-1 {
   animation: slideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.7s;

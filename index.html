@@ -255,6 +255,57 @@
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText)
         window.addEventListener("load", () => {
+
+            const portifolios = gsap.utils.toArray(".projetos");
+            const tlPortifolio = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".portifolio",
+                    start: "top top",
+                    end: `bottom bottom`,
+                    scrub: 2,
+
+                }
+            });
+            portifolios.forEach((e) => {
+                tlPortifolio.to(e, {
+                    width: '100%',
+                    borderRadius: "0%",
+                    stagger: 0.02,
+                    duration: 0.6
+                });
+            })
+
+            const quotes = gsap.utils.toArray(".quote");
+            const tlQuotes = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".quote-section",
+                    start: "-200px -100px",
+                    // markers: { startColor: "green", endColor: "red", fontSize: "12px" },
+
+                    end: `+=${quotes.length * 600}`,
+                    scrub: 1,
+                    pin: true,
+                }
+            });
+
+            quotes.forEach((el) => {
+                const split = new SplitText(el, { type: "chars" });
+
+                tlQuotes.from(split.chars, {
+                    opacity: 0,
+                    y: 150,
+                    stagger: 0.02,
+                    duration: 0.6
+                });
+
+                tlQuotes.to(split.chars, {
+                    opacity: 0,
+                    y: -50,
+                    stagger: 0.02,
+                    duration: 0.6
+                });
+            });
+
             const heroVideo = document.querySelector(".video-box .video");
             if (heroVideo) {
                 heroVideo.play().catch(() => { });
@@ -325,62 +376,14 @@
                     opacity: 1,
                 })
             })
-
-            const portifolios = gsap.utils.toArray(".projetos");
-            const tlPortifolio = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".portifolio",
-                    start: "top top",
-                    end: `bottom bottom`,
-                    scrub: 2,
-
-                }
-            });
-            portifolios.forEach((e) => {
-                tlPortifolio.to(e, {
-                    width: '100%',
-                    borderRadius: "0%",
-                    stagger: 0.02,
-                    duration: 0.6
-                });
-            })
-
-            const quotes = gsap.utils.toArray(".quote");
-            const tlQuotes = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".quote-section",
-                    start: "-200px -100px",
-                    // markers: { startColor: "green", endColor: "red", fontSize: "12px" },
-
-                    end: `+=${quotes.length * 600}`,
-                    scrub: 1,
-                    pin: true,
-                }
-            });
-
-            quotes.forEach((el) => {
-                const split = new SplitText(el, { type: "chars" });
-
-                tlQuotes.from(split.chars, {
-                    opacity: 0,
-                    y: 150,
-                    stagger: 0.02,
-                    duration: 0.6
-                });
-
-                tlQuotes.to(split.chars, {
-                    opacity: 0,
-                    y: -50,
-                    stagger: 0.02,
-                    duration: 0.6
-                });
-            });
-
             gsap.set(".projetos", {
                 width: '26%',
                 borderRadius: "20%/20%",
 
             })
+
+
+
 
         });
 
