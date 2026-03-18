@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <!-- <div id="preloader" class="fixed z-[100] top-0 left-0 right-0 bottom-0 bg-[#080808] flex flex-col">
+    <div id="preloader" class="fixed z-[100] top-0 left-0 right-0 bottom-0 bg-[#080808] flex flex-col">
 
         <span class="absolute top-8 left-10  text-white text-2xl tracking-widest anim-fade-up delay-200">
             DC
@@ -57,7 +57,7 @@
 
         </div>
 
-    </div> -->
+    </div>
     <div class="bg-main overflow-hidden">
         <div class="video-box md:h-screen h-[90vh] flex items-center justify-center relative">
             <video class="video object-cover md:object-bottom object-[90%] w-full h-full  bg-cover" autoplay muted loop
@@ -242,17 +242,17 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 
     <script>
-        // const preloader = document.getElementById('preloader');
-        // const loaderLine = document.getElementById('loader-line');
+        const preloader = document.getElementById('preloader');
+        const loaderLine = document.getElementById('loader-line');
 
-        // loaderLine.addEventListener('animationend', () => {
-        //     setTimeout(() => {
-        //         preloader.classList.add('done');
-        //         preloader.addEventListener('animationend', () => {
-        //             preloader.style.display = 'none';
-        //         }, { once: true });
-        //     }, 350);
-        // });
+        loaderLine.addEventListener('animationend', () => {
+            setTimeout(() => {
+                preloader.classList.add('done');
+                preloader.addEventListener('animationend', () => {
+                    preloader.style.display = 'none';
+                }, { once: true });
+            }, 350);
+        });
 
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText)
