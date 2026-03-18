@@ -59,7 +59,7 @@
     </div>
     <div class="bg-main overflow-hidden">
         <div class="video-box md:h-screen h-[90vh] flex items-center justify-center relative">
-            <video class="video object-cover md:object-bottom object-[90%] w-full h-full  bg-cover" autoplay muted loop
+            <video class="video object-cover md:object-bottom object-[90%] w-full h-full  bg-cover" muted loop
                 playsinline preload="metadata" poster="/preBg.png">
                 <source src="/0315.mp4" type="video/mp4" />
                 <!-- Seu navegador não suporta vídeo HTML5. -->
@@ -233,28 +233,33 @@
         </video>
 
     </div>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 
     <script>
-         const preloader = document.getElementById('preloader');
-         const loaderLine = document.getElementById('loader-line');
+        const preloader = document.getElementById('preloader');
+        const loaderLine = document.getElementById('loader-line');
 
-         loaderLine.addEventListener('animationend', () => {
-             setTimeout(() => {
-                 preloader.classList.add('done');
-                 preloader.addEventListener('animationend', () => {
-                     preloader.style.display = 'none';
-                 }, { once: true });
-             }, 350);
-         });
+        loaderLine.addEventListener('animationend', () => {
+            setTimeout(() => {
+                preloader.classList.add('done');
+                preloader.addEventListener('animationend', () => {
+                    preloader.style.display = 'none';
+                }, { once: true });
+            }, 350);
+        });
 
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText)
-
+        window.addEventListener("load", () => {
+            const heroVideo = document.querySelector(".video-box .video");
+            if (heroVideo) {
+                heroVideo.play().catch(() => { });
+            }
+        });
         document.addEventListener("DOMContentLoaded", (event) => {
 
             let split = SplitText.create(".textTransition", {

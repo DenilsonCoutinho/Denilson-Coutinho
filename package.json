@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/lato": "^5.2.7",
     "@tailwindcss/vite": "^4.2.1",
     "tailwindcss": "^4.2.1"
   },
