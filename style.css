@@ -70,11 +70,7 @@ body {
   overflow-x: hidden;
 }
 
-.bg-main {
-  height: 130vh;
-  width: 100%;
-  position: relative;
-}
+
 
 .bg-section {
   background-image: url("/assets/abstract-digital-grid-black-background.jpg");
@@ -96,26 +92,8 @@ body {
   height: 150px;
 }
 
-.container-text {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 
-.textTransition {
-  position: absolute;
-  color: #dfdcff;
-  font-size: 3rem;
-  padding: 30px;
 
-  text-align: left;
-  /* perspective: 500px; */
-}
 
 @media screen and (max-width: 600px) {
   .textTransition {
@@ -130,12 +108,6 @@ body {
   }
 }
 
-.video-box {
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #000;
-}
 
 .overlay {
   position: absolute;
@@ -243,13 +215,13 @@ body {
   animation: gradient_301 5s ease infinite;
   border: double 4px transparent;
   background-image:
-    linear-gradient(#212121, #212121),
+    linear-gradient(#f24b18, #fb7a53),
     linear-gradient(
       137.48deg,
       #212121 10%,
-      #212121 45%,
+      #f24b18 45%,
       #212121 67%,
-      #212121 87%
+      #f24b18 87%
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
@@ -331,22 +303,86 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-.content-behind {
-  height: 100vh;
-  color: white;
-  place-content: center;
+/* Container to enable 3D perspective */
+.button-container-hero {
+  perspective: 1000px;
 }
 
-.mask-layer {
+/* Base button styles with capsule shape and glass effect */
+.button-hero {
+  
+  border-radius: 30px; /* Creates the capsule shape */
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    /* Top highlight */ inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+    /* Bottom shadow */ 0 4px 8px rgba(0, 0, 0, 0.2),
+    /* Drop shadow */ 0 0 20px rgba(255, 255, 255, 0.1); /* Subtle glow */
+  transform: rotateX(15deg) translateZ(0); /* Initial 3D tilt */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Springy transition */
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Moving shine effect for glass-like reflection */
+.button-hero::before {
+  content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: -50px;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1),
+    transparent
+  ); /* Shine gradient */
+  transform: skewX(-25deg); /* Tilted shine */
+  animation: shine 3s infinite linear; /* Continuous shine movement */
   pointer-events: none;
+  z-index: 1;
 }
 
-.mask-text {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(1.2);
+/* Ground shadow to enhance 3D effect */
+.button-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  width: 80%;
+  height: 10px;
+  
+  z-index: -1;
+}
+
+/* Text inside the button */
+.button-hero span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Depth for text */
+  display: block;
+  line-height: 60px; /* Center vertically */
+  text-align: center;
+}
+
+
+/* Pulsing animation for idle state */
+
+
+/* Shine animation for dynamic glass effect */
+@keyframes shine {
+  0% {
+    left: -50px; /* Start off-screen */
+  }
+  100% {
+    left: 750px; /* Move past button width (200px + buffer) */
+  }
 }
 @keyframes animStar {
   from {
