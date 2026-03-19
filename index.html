@@ -377,7 +377,7 @@
                     start: "top 80%",
                     end: "bottom 40%", // end after scrolling 500px beyond the start2
                     scrub: true,
-                    // markers: { startColor: "green", endColor: "red", fontSize: "12px" },
+                    markers: { startColor: "green", endColor: "red", fontSize: "12px" },
                 },
             });
             gsap.set("#itemPath", { transformOrigin: "50% 50%" });
@@ -413,9 +413,9 @@
                     autoRotate: true,
                 },
                 transformOrigin: "50% 50%",
-                duration: 5,
+                duration: 25,
                 ease: "power1.inOut",
-            }, 2);
+            }, "-=4.2");
             containertextTextTransition.fromTo(split.chars, {
                 opacity: 0.1,
                 stagger: 1.28,
@@ -429,7 +429,7 @@
                     duration: 2.8,
                     ease: "power3.out"
                 },
-                0.2)
+                5.2)
 
 
             let tlServices = gsap.timeline({
