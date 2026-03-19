@@ -177,7 +177,20 @@
         </div>
     </section>
 
-    <section class="portifolio overflow-hidden">
+    
+
+    <section class="quote-section  relative md:h-[70vh]  h-[30vh] flex justify-center items-center">
+        <div class="flex  flex-col justify-center gap-10 items-center ">
+            <!-- <img loading="lazy" src="/public/DC.png" class="max-w-10  "> -->
+            <div class="quote-wrap relative  flex justify-center items-center ">
+                <h2 class="quote flex text-[#f24b18] absolute md:text-7xl text-5xl">Design</h2>
+                <h2 class="quote flex text-white absolute md:text-7xl text-5xl">Animações</h2>
+                <h2 class="quote flex text-[#f24b18] absolute md:text-7xl text-5xl">Otimizações</h2>
+                <h2 class="quote flex text-white absolute md:text-7xl text-5xl">SEO</h2>
+            </div>
+        </div>
+    </section>
+<section class="portifolio overflow-hidden">
         <h1 class="text-white text-4xl text-center py-20 font-thin">Projetos Recentes</h1>
         <div class="flex flex-col items-center justify-center gap-10 overflow-hidden">
             <div class="overflow-hidden  flex justify-center items-center  projetos">
@@ -200,19 +213,6 @@
         </div>
 
     </section>
-
-    <section class=" quote-section h-[70vh]  flex justify-center items-center">
-        <div class="flex  flex-col justify-center gap-10 items-center ">
-            <!-- <img loading="lazy" src="/public/DC.png" class="max-w-10  "> -->
-            <div class="quote-wrap relative  flex justify-center items-center ">
-                <h2 class="quote flex text-[#f24b18] absolute md:text-7xl text-5xl">Design</h2>
-                <h2 class="quote flex text-white absolute md:text-7xl text-5xl">Animações</h2>
-                <h2 class="quote flex text-[#f24b18] absolute md:text-7xl text-5xl">Otimizações</h2>
-                <h2 class="quote flex text-white absolute md:text-7xl text-5xl">SEO</h2>
-            </div>
-        </div>
-    </section>
-
     <div class="video-box h-screen last-section relative">
         <div class="absolute inset-0 z-50 w-full h-full flex flex-col justify-center items-center">
             <div class="flex items-start justify-between">
@@ -278,7 +278,21 @@
     <script>
         const textTransition = document.querySelector('.textTransition');
         gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, SplitText);
+         var lenis = new Lenis({
+            duration: 1.2,
+            easing: function (t) { return 1 - Math.pow(1 - t, 3); },
+            smoothWheel: true,
+            smoothTouch: true,
+            touchMultiplier: 1.5,
+        });
 
+        // Loop do Lenis + GSAP
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        lenis.on("scroll", ScrollTrigger.update);
 
         window.addEventListener("load", () => {
             const heroVideo = document.querySelector(".video-box .video");
@@ -349,15 +363,15 @@
                 width: '50%',
                 borderRadius: "10%",
             });
-            
-            
+
+
             const portifolios = gsap.utils.toArray(".projetos");
             const tlPortifolio = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".portifolio",
                     start: "top top",
                     end: `bottom bottom`,
-                    scrub: 2,
+                    scrub: 1,
                     // markers: { startColor: "green", endColor: "red", fontSize: "12px" },
 
                 }
@@ -374,53 +388,44 @@
             })
 
 
-                const quotes = gsap.utils.toArray(".quote");
-                const tlQuotes = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ".quote-section",
-                        pin:true,
-                        start: "top top",
-                        // markers: { startColor: "green", endColor: "red", fontSize: "12px" },
-                        end: () => "+=" + quotes.length * 800,
-                        scrub: 1,
-                    }
+            const quotes = gsap.utils.toArray(".quote");
+            const tlQuotes = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".quote-section",
+                    start: "top top+=200px",
+                    end: `+=${quotes.length * 700}`,
+                    pin: true,
+                    pinSpacing: true,  // <-- adiciona isso
+
+                    // markers: { startColor: "green", endColor: "red", fontSize: "12px" },
+                    scrub: 1,
+                }
+            });
+
+            quotes.forEach((el) => {
+                const split = new SplitText(el, { type: "chars" });
+
+                tlQuotes.from(split.chars, {
+                    opacity: 0,
+                    filter: "blur(10px)",
+                    scale: 2.5,
+                     stagger: {
+                    each: 0.02,
+                    from: "random"
+                },
+                duration: 0.1
                 });
 
-                quotes.forEach((el) => {
-                    const split = new SplitText(el, { type: "chars" });
-
-                    tlQuotes.from(split.chars, {
-                        opacity: 0,
-                        filter: "blur(10px)",
-                        scale: 1.5,
-                        duration: 0.6
-                    });
-
-                    tlQuotes.to(split.chars, {
-                        opacity: 0,
-                        scale: 1.2,
-                        duration: 0.6
-                    });
+                tlQuotes.to(split.chars, {
+                    opacity: 0,
+                    scale: 1.2,
                 });
+            });
 
-           
+
         });
 
-        var lenis = new Lenis({
-            duration: 1.2,
-            easing: function (t) { return 1 - Math.pow(1 - t, 3); },
-            smoothWheel: true,
-            smoothTouch: true,
-            touchMultiplier: 1.5,
-        });
-
-        // Loop do Lenis + GSAP
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-        lenis.on("scroll", ScrollTrigger.update);
+       
     </script>
 
 
