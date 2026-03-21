@@ -97,6 +97,27 @@ body {
 .word-2 {
   animation: slideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.9s;
 }
+.floating {
+            /* --- APLICAÇÃO DA ANIMAÇÃO --- */
+            animation-name: float;         /* Nome do keyframe abaixo */
+            animation-duration: 3s;          /* Tempo de um ciclo (ir OU voltar) */
+            animation-timing-function: ease-in-out; /* Suaviza início e fim */
+            animation-iteration-count: infinite; /* Não para nunca */
+            animation-direction: alternate;  /* Vai de 0% a 100%, depois de 100% a 0% */
+            
+            /* Atalho para o código acima: */
+            /* animation: flutuar 3s ease-in-out infinite alternate; */
+        }
+@keyframes float {
+            0% {
+                /* Começa na posição original */
+                transform: translateY(0);
+            }
+            100% {
+                /* Move o elemento 30px para CIMA (valor negativo no eixo Y) */
+                transform: translateY(-30px);
+            }
+        }
 
 @keyframes slideUp {
   to {
